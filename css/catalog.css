@@ -106,8 +106,10 @@ html:not(.nav-ready) .catalog-search { display: none; }
   .catalog-gallery-grid { gap: 10px; }
   .catalog-gallery-grid figcaption { padding: 10px; font-size: 11px; }
 }
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .catalog-page .direct-filter-tabs { margin-inline: -14px; padding-inline: 14px; }
+}
+@media (max-width: 360px) {
   .catalog-page .direct-card-name { font-size: 14px; }
   .catalog-page .direct-card-price { font-size: 18px; }
 }

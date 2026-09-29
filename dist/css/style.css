@@ -526,3 +526,99 @@ button, input, textarea, select { font-family: var(--font); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Compact layout for the legacy information pages. The storefront has its own
+   responsive rules in home.css, so these intentionally exclude .home-page. */
+@media (max-width: 700px) {
+  body:not(.home-page) { line-height: 1.48; }
+  body:not(.home-page) .container { padding-inline: 14px; }
+  body:not(.home-page) .topbar .container {
+    flex-wrap: nowrap; gap: 8px; padding-block: 4px; font-size: 11px;
+  }
+  body:not(.home-page) .topbar .left,
+  body:not(.home-page) .topbar .right { flex-wrap: nowrap; gap: 8px; white-space: nowrap; }
+  body:not(.home-page) .topbar .left span:nth-child(2),
+  body:not(.home-page) .topbar .right a:nth-child(2) { display: none; }
+  body:not(.home-page) .nav { padding-block: 7px; gap: 8px; }
+  body:not(.home-page) .container.nav { padding-inline: 14px; }
+  body:not(.home-page) .brand { gap: 8px; min-width: 0; }
+  body:not(.home-page) .brand img { width: 42px; height: 42px; flex: 0 0 42px; }
+  body:not(.home-page) .brand-text strong { font-size: 17px; }
+  body:not(.home-page) .brand-text small { font-size: 10px; }
+  body:not(.home-page) .nav-toggle { min-width: 44px; min-height: 44px; padding: 8px; }
+
+  body:not(.home-page) section { padding-block: 24px; }
+  body:not(.home-page) section.tight { padding-block: 20px; }
+  body:not(.home-page) .page-hero {
+    padding-block: 25px 23px;
+    background: linear-gradient(120deg, #143e2d, #2c7350);
+  }
+  body:not(.home-page) .page-hero h1 { font-size: 29px; line-height: 1.24; margin: 4px 0; }
+  body:not(.home-page) .page-hero p.lead { font-size: 14px; margin: 4px 0 0; line-height: 1.45; }
+  body:not(.home-page) .section-head { margin-bottom: 16px; text-align: left; }
+  body:not(.home-page) .section-head .eyebrow { margin-bottom: 3px; letter-spacing: 0.08em; }
+  body:not(.home-page) .section-head h2 { font-size: 23px; line-height: 1.3; margin-bottom: 4px; }
+  body:not(.home-page) .section-head p { font-size: 14px; line-height: 1.45; }
+
+  body:not(.home-page) .about-grid,
+  body:not(.home-page) .contact-grid { gap: 16px; }
+  body:not(.home-page) .about-grid img {
+    width: 100%; height: clamp(170px, 52vw, 220px);
+    aspect-ratio: 16 / 9; object-fit: cover; object-position: center;
+  }
+  body:not(.home-page) .about-grid h2 { font-size: 25px; line-height: 1.28; margin-bottom: 8px; }
+  body:not(.home-page) .about-grid p { margin: 8px 0; }
+  body:not(.home-page) .about-list { margin-top: 8px; }
+  body:not(.home-page) .about-list li { padding-block: 4px; }
+  body:not(.home-page) .about-list li::before { top: 3px; }
+  body:not(.home-page) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  body:not(.home-page) .feature { padding: 12px; min-width: 0; }
+  body:not(.home-page) .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  body:not(.home-page) .feature .ico {
+    width: 34px; height: 34px; border-radius: 9px; margin-bottom: 6px; font-size: 18px;
+  }
+  body:not(.home-page) .feature h3 { font-size: 15px; line-height: 1.28; margin-bottom: 4px; }
+  body:not(.home-page) .feature p { font-size: 13px; line-height: 1.43; }
+
+  body:not(.home-page) .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  body:not(.home-page) .gallery a { border-radius: 10px; }
+  body:not(.home-page) .reels {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 6px; -webkit-overflow-scrolling: touch;
+  }
+  body:not(.home-page) .reel { flex: 0 0 min(62vw, 220px); scroll-snap-align: start; }
+
+  body:not(.home-page) .contact-card { padding: 15px; border-radius: 14px; }
+  body:not(.home-page) .contact-card h3 { margin-bottom: 7px; font-size: 20px; }
+  body:not(.home-page) .contact-line { gap: 10px; padding-block: 7px; font-size: 14px; }
+  body:not(.home-page) .contact-line .ico {
+    width: 34px; height: 34px; border-radius: 9px; font-size: 16px;
+  }
+  body:not(.home-page) form,
+  body:not(.home-page) .form-row { gap: 9px; }
+  body:not(.home-page) input,
+  body:not(.home-page) select,
+  body:not(.home-page) textarea { min-height: 44px; padding: 9px 12px; }
+  body:not(.home-page) textarea { min-height: 88px; }
+  body:not(.home-page) .btn { min-height: 44px; padding: 9px 14px; font-size: 14px; }
+  body:not(.home-page) .cta-strip { padding-block: 20px; }
+  body:not(.home-page) .cta-strip .container { gap: 9px; }
+  body:not(.home-page) .cta-strip h3 { font-size: 20px; line-height: 1.3; }
+  body:not(.home-page) .cta-strip p { font-size: 13px; }
+
+  body:not(.home-page) footer { padding: 24px 0 16px; }
+  body:not(.home-page) .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; margin-bottom: 16px;
+  }
+  body:not(.home-page) .footer-grid > :first-child,
+  body:not(.home-page) .footer-grid > :last-child { grid-column: 1 / -1; }
+  body:not(.home-page) .footer-grid .brand { margin-bottom: 6px !important; }
+  body:not(.home-page) footer p { margin: 6px 0; font-size: 13px; }
+  body:not(.home-page) footer h4 { margin-bottom: 4px; font-size: 14px; }
+  body:not(.home-page) footer ul li { padding-block: 2px; font-size: 13px; }
+  body:not(.home-page) .social-row { margin-top: 8px; }
+  body:not(.home-page) .social-row a { width: 34px; height: 34px; }
+  body:not(.home-page) .footer-bottom { padding-top: 9px; gap: 3px; font-size: 11px; }
+  body:not(.home-page) .mobile-bar { padding-top: 4px; }
+  body:not(.home-page) .mobile-bar a { min-height: 48px; padding-block: 3px; }
+}

@@ -377,6 +377,58 @@
     syncPlayback();
   }
 
+  // Keep the homepage fast: load at most one Facebook player, only after a click.
+  const reelsRail = document.querySelector('.home-reels-rail');
+  if (reelsRail) {
+    let activeReel = null;
+    const closeReel = (restoreFocus) => {
+      if (!activeReel) return;
+      const previous = activeReel;
+      previous.querySelector('iframe')?.remove();
+      const play = previous.querySelector('.home-reel-play');
+      const close = previous.querySelector('.home-reel-close');
+      play.hidden = false;
+      close.hidden = true;
+      activeReel = null;
+      if (restoreFocus) play.focus({ preventScroll: true });
+    };
+    reelsRail.addEventListener('click', (event) => {
+      const close = event.target.closest('.home-reel-close');
+      if (close) {
+        closeReel(true);
+        return;
+      }
+      const play = event.target.closest('.home-reel-play');
+      if (!play) return;
+      const media = play.closest('.home-reel-media');
+      const id = media?.dataset.reelId;
+      if (!/^\d{10,20}$/.test(id || '')) return;
+      closeReel(false);
+      const reelUrl = 'https://www.facebook.com/reel/' + id + '/';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(reelUrl) + '&show_text=0&width=220&height=300';
+      iframe.title = (media.dataset.reelTitle || 'পণ্যের') + ' ভিডিও';
+      iframe.loading = 'eager';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      media.appendChild(iframe);
+      play.hidden = true;
+      const closeButton = media.querySelector('.home-reel-close');
+      closeButton.hidden = false;
+      activeReel = media;
+      closeButton.focus({ preventScroll: true });
+    });
+    reelsRail.addEventListener('keydown', (event) => {
+      if (event.target !== reelsRail || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      reelsRail.scrollBy({ left: event.key === 'ArrowRight' ? 215 : -215, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && activeReel) closeReel(true);
+    });
+  }
+
   // Product quantities are drafts until the customer adds them to their list.
   const directGrid = document.getElementById('directProductsGrid');
   const filterTabs = Array.from(document.querySelectorAll('.filter-tab'));

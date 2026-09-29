@@ -1,6 +1,6 @@
 """Fresh Mart Faridpur — local preview with friendly URLs.
 
-Serves the public site pages, product details, assets, styles and scripts on 127.0.0.1.
+Serves the public site pages, product details, assets, styles and scripts for local previews.
 Development evidence, source tools and directory listings are not public.
 Use a static host for production deployment.
 """

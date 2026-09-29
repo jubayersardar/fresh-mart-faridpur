@@ -14,13 +14,13 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG_BUILDER = ROOT / "tools" / "build-catalog.py"
-VERSION = "20260929-1"
 
 spec = importlib.util.spec_from_file_location("freshmart_catalog_builder", CATALOG_BUILDER)
 if spec is None or spec.loader is None:
     raise RuntimeError("Cannot load the catalog builder")
 catalog = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(catalog)
+VERSION = catalog.VERSION
 
 
 def esc(value: object) -> str:
@@ -41,10 +41,7 @@ def display_price(item: dict) -> str:
 
 
 def product_description(item: dict) -> str:
-    stated = str(item.get("description") or "").strip()
-    if stated:
-        return stated
-    return "আপনার প্রয়োজনীয় প্যাক ও পরিমাণ বেছে অর্ডারের অনুরোধ করুন। প্রাপ্যতা ও চূড়ান্ত দাম যোগাযোগের সময় নিশ্চিত করুন।"
+    return str(item.get("description") or "").strip()
 
 
 def photo(item: dict, *, recommendation: bool = False) -> str:
@@ -97,20 +94,31 @@ def render_recommendation(item: dict) -> str:
 
 def render(item: dict, items: list[dict], chrome: tuple[str, str, str, str, str]) -> str:
     sprite, header, order_bar, footer, mobile = chrome
+    header = header.replace(
+        '<a href="products.html" class="active" aria-current="page">',
+        '<a href="products.html" class="active">',
+        1,
+    )
+    mobile = mobile.replace(
+        '<a href="products.html" aria-current="page">',
+        '<a href="products.html" class="active">',
+        1,
+    )
     name = esc(item["name"])
     unit = esc(item["unit"])
     category_name, _ = catalog.CATEGORIES[item["category"]]
     category = esc(category_name)
     amount = catalog.price_amount(item)
     price = esc(display_price(item))
-    descriptive_copy = esc(product_description(item))
+    description = product_description(item)
+    description_html = f'<p class="detail-description">{esc(description)}</p>' if description else ""
     meta_copy = esc(
         f"{item['name']} ({item['unit']}) — Fresh Mart Faridpur-এর {category_name} পণ্য। "
         "পরিমাণ বেছে WhatsApp-এ অর্ডারের অনুরোধ করুন; দাম, মজুত ও ডেলিভারি নিশ্চিত করুন।"
     )
     source = item.get("source")
     source_link = ""
-    if source and str(source).startswith("https://www.facebook.com/"):
+    if item.get("image") and source and str(source).startswith("https://www.facebook.com/"):
         source_link = f'<a class="detail-photo-source" href="{esc(source)}" target="_blank" rel="noopener noreferrer">Facebook-এ পণ্যের ছবি দেখুন {icon("arrow")}</a>'
     recommendations_html = "\n".join(render_recommendation(other) for other in recommendations(item, items))
     category_link = f"products.html#{esc(item['category'])}"
@@ -165,11 +173,11 @@ def render(item: dict, items: list[dict], chrome: tuple[str, str, str, str, str]
             <span class="home-eyebrow">Fresh Mart Faridpur · {category}</span>
             <h1 class="direct-card-name" id="product-heading">{name}</h1>
             <p class="detail-unit">প্রতি প্যাক: <strong>{unit}</strong></p>
-            <p class="detail-description">{descriptive_copy}</p>
+            {description_html}
             <div class="detail-value-panel">
               <span>তালিকামূল্য</span>
               <div class="direct-card-price-row"><strong class="direct-card-price">{price}</strong><small>/ {unit}</small></div>
-              <p>বাজার ও মজুত অনুযায়ী মূল্য বদলাতে পারে। চূড়ান্ত মূল্য ও ডেলিভারি খরচ অর্ডারের আগে নিশ্চিত করুন।</p>
+              <p>তালিকামূল্য বদলাতে পারে। চূড়ান্ত মূল্য ও ডেলিভারি খরচ নিশ্চিত করুন।</p>
             </div>
             <div class="detail-order-panel">
               <span class="detail-order-label">কয়টি ইউনিট চান?</span>
@@ -183,7 +191,6 @@ def render(item: dict, items: list[dict], chrome: tuple[str, str, str, str, str]
                 <a href="{esc(catalog.order_link(item))}" target="_blank" rel="noopener noreferrer" class="direct-btn-order" aria-label="{name} WhatsApp-এ অর্ডারের অনুরোধ করুন">{icon('chat')}এই পণ্য অর্ডার করুন</a>
               </div>
               <button class="direct-btn-add" type="button">অর্ডার তালিকায় যোগ করুন{icon('plus')}</button>
-              <small class="detail-order-help">একাধিক পণ্য চাইলে তালিকায় যোগ করে একসঙ্গে WhatsApp-এ পাঠান।</small>
               <noscript><p class="catalog-no-script">অর্ডার করুন বাটন একটি প্যাকের WhatsApp খসড়া খুলবে। অন্য পরিমাণ চাইলে বার্তায় লিখুন।</p></noscript>
             </div>
             <div class="detail-service-strip" aria-label="অর্ডারের তথ্য">

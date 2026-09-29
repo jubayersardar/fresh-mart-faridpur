@@ -15,7 +15,7 @@ from urllib.parse import quote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20260929-2"
+VERSION = "20260929-6"
 FACEBOOK = "https://www.facebook.com/profile.php?id=61591856639645"
 PRICE_SOURCE = (
     "https://www.facebook.com/permalink.php?"

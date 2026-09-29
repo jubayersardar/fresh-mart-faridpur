@@ -570,6 +570,25 @@ html:not(.nav-ready) .direct-qty-box, html:not(.nav-ready) .direct-btn-add, html
   width: 17px;
   height: 17px;
 }
+/* Latest product reels: local posters are light; the player loads on request. */
+.home-page .home-reels { padding: 24px 0 30px; background: #fff; border-bottom: 1px solid #e9eee5; }
+.home-reels-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.home-reels-heading h2 { color: var(--home-green); font-size: 23px; line-height: 1.35; font-weight: 600; }
+.home-reels-heading a { color: #4b7141; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.home-reels-rail { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.home-reel-card { min-width: 0; overflow: hidden; border: 1px solid #e1e9dc; border-radius: 10px; background: #f9faf7; }
+.home-reel-media { position: relative; height: clamp(220px, 22vw, 300px); overflow: hidden; background: #183c2d; }
+.home-reel-play { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: #fff; cursor: pointer; }
+.home-reel-play img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.home-reel-play::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, #09271f64); pointer-events: none; }
+.home-reel-play span { position: absolute; z-index: 1; top: 50%; left: 50%; display: grid; place-items: center; width: 52px; height: 52px; border: 2px solid #ffffffed; border-radius: 50%; background: #153e31d9; font-size: 19px; line-height: 1; transform: translate(-50%, -50%); transition: transform .18s, background .18s; }
+.home-reel-play:hover span { background: #174b35; transform: translate(-50%, -50%) scale(1.08); }
+.home-reel-media iframe { display: block; width: 100%; height: 100%; border: 0; background: #123627; }
+.home-reel-close { position: absolute; z-index: 2; top: 7px; right: 7px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #fff9; border-radius: 50%; background: #153e31e8; color: #fff; cursor: pointer; }
+.home-reel-play[hidden], .home-reel-close[hidden] { display: none !important; }
+.home-reel-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 8px; padding: 8px 10px 9px; }
+.home-reel-meta h3 { color: #234b38; font-size: 13px; line-height: 1.4; font-weight: 600; }
+.home-reel-meta a { font-size: 11px; line-height: 1.4; white-space: nowrap; }
 .home-page .home-story { padding: 58px 0; }
 .story-layout { display: grid; grid-template-columns: .82fr 1fr; align-items: center; gap: 70px; }
 .story-visual { position: relative; height: 330px; background: #e5ecdc; border-radius: 16px; margin-right: 18px; }
@@ -672,6 +691,9 @@ html:not(.nav-ready) .direct-qty-box, html:not(.nav-ready) .direct-btn-add, html
   .step-number { font-size: 23px; min-width: 32px; }
   .order-callout { padding: 28px; }
   .faq-layout { gap: 35px; }
+  .home-reels-rail { display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 5px; }
+  .home-reel-card { flex: 0 0 205px; scroll-snap-align: start; }
+  .home-reel-media { height: 270px; }
 }
 @media (max-width: 700px) {
   .home-page .container { padding-inline: 18px; }
@@ -732,6 +754,13 @@ html:not(.nav-ready) .direct-qty-box, html:not(.nav-ready) .direct-btn-add, html
   .direct-more-products { margin-top: 12px; }
   .direct-more-button { width: 100%; max-width: 300px; min-height: 42px; font-size: 13px; }
   .direct-footer-note .icon { margin-top: 4px; }
+  .home-page .home-reels { padding: 18px 0 22px; }
+  .home-reels-heading { margin-bottom: 9px; }
+  .home-reels-heading h2 { font-size: 19px; }
+  .home-reels-heading a { font-size: 11px; }
+  .home-reels-rail { margin-inline: -18px; padding-inline: 18px; scroll-padding-inline: 18px; }
+  .home-reel-card { flex-basis: 205px; }
+  .home-reel-media { height: 260px; }
   .floating-order-bar { left: 10px; right: 10px; }
   .floating-bar-inner { padding: 12px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
   .bar-actions { justify-content: space-between; }
@@ -785,6 +814,7 @@ html:not(.nav-ready) .direct-qty-box, html:not(.nav-ready) .direct-btn-add, html
   .direct-card-info { padding-inline: 9px; }
   .direct-card-name { font-size: 15px; }
   .direct-card-price { font-size: 18px; }
+  .home-reels-rail { margin-inline: -14px; padding-inline: 14px; scroll-padding-inline: 14px; }
   .story-benefits { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {

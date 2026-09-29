@@ -325,6 +325,25 @@
         manuallyGoTo(Number.isInteger(requested) && requested >= 0 && requested < slides.length ? requested : index);
       });
     });
+    // On phones, a horizontal swipe changes the photo without trapping vertical page scroll.
+    const swipeArea = slider.querySelector('.hero-image-stage');
+    if (swipeArea && slides.length > 1) {
+      let swipeStart = null;
+      swipeArea.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) { swipeStart = null; return; }
+        swipeStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+      }, { passive: true });
+      swipeArea.addEventListener('touchend', (event) => {
+        if (!swipeStart || event.changedTouches.length !== 1) return;
+        const distanceX = event.changedTouches[0].clientX - swipeStart.x;
+        const distanceY = event.changedTouches[0].clientY - swipeStart.y;
+        swipeStart = null;
+        if (Math.abs(distanceX) >= 44 && Math.abs(distanceX) > Math.abs(distanceY) * 1.35) {
+          manuallyGoTo(current + (distanceX < 0 ? 1 : -1));
+        }
+      }, { passive: true });
+      swipeArea.addEventListener('touchcancel', () => { swipeStart = null; }, { passive: true });
+    }
     if (pause) pause.addEventListener('click', () => {
       userPaused = !userPaused;
       // An explicit play request works while the play control still has focus.
@@ -356,6 +375,58 @@
     else reducedMotion.addListener(handleMotionPreference);
     goTo(current);
     syncPlayback();
+  }
+
+  // Keep the homepage fast: load at most one Facebook player, only after a click.
+  const reelsRail = document.querySelector('.home-reels-rail');
+  if (reelsRail) {
+    let activeReel = null;
+    const closeReel = (restoreFocus) => {
+      if (!activeReel) return;
+      const previous = activeReel;
+      previous.querySelector('iframe')?.remove();
+      const play = previous.querySelector('.home-reel-play');
+      const close = previous.querySelector('.home-reel-close');
+      play.hidden = false;
+      close.hidden = true;
+      activeReel = null;
+      if (restoreFocus) play.focus({ preventScroll: true });
+    };
+    reelsRail.addEventListener('click', (event) => {
+      const close = event.target.closest('.home-reel-close');
+      if (close) {
+        closeReel(true);
+        return;
+      }
+      const play = event.target.closest('.home-reel-play');
+      if (!play) return;
+      const media = play.closest('.home-reel-media');
+      const id = media?.dataset.reelId;
+      if (!/^\d{10,20}$/.test(id || '')) return;
+      closeReel(false);
+      const reelUrl = 'https://www.facebook.com/reel/' + id + '/';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(reelUrl) + '&show_text=0&width=220&height=300';
+      iframe.title = (media.dataset.reelTitle || 'পণ্যের') + ' ভিডিও';
+      iframe.loading = 'eager';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      media.appendChild(iframe);
+      play.hidden = true;
+      const closeButton = media.querySelector('.home-reel-close');
+      closeButton.hidden = false;
+      activeReel = media;
+      closeButton.focus({ preventScroll: true });
+    });
+    reelsRail.addEventListener('keydown', (event) => {
+      if (event.target !== reelsRail || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      reelsRail.scrollBy({ left: event.key === 'ArrowRight' ? 215 : -215, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && activeReel) closeReel(true);
+    });
   }
 
   // Product quantities are drafts until the customer adds them to their list.
@@ -569,7 +640,10 @@
         if (!addBtn) return;
         const selection = selected.get(productId(card));
         const saved = !!selection && selection.qty === currentQty;
-        const label = saved ? 'তালিকায় যোগ হয়েছে' : selection ? 'তালিকা আপডেট করুন' : 'তালিকায় যোগ করুন';
+        const isDetailPage = document.body.classList.contains('product-detail-page');
+        const label = isDetailPage
+          ? (saved ? 'কার্টে যোগ হয়েছে' : selection ? 'কার্ট আপডেট করুন' : 'কার্টে যোগ করুন')
+          : (saved ? 'তালিকায় যোগ হয়েছে' : selection ? 'তালিকা আপডেট করুন' : 'তালিকায় যোগ করুন');
         addBtn.textContent = label;
         addBtn.classList.toggle('is-added', saved);
         addBtn.setAttribute('aria-label', name + ' ' + bengaliDigits(currentQty) + ' ইউনিট — ' + label);

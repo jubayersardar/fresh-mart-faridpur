@@ -1,7 +1,7 @@
 Fresh Mart Faridpur - public website release
 
 Upload the contents of this directory to your static hosting site's web root.
-Keep css/, js/, and assets/ beside the five HTML pages, with their paths unchanged.
+Keep css/, js/, and assets/ beside the HTML pages, with their paths unchanged.
 Set index.html as the default page and enable HTTPS on your hosting provider.
 The pages use UTF-8 and include local fonts; no application server or installation is required.
 
