@@ -1,0 +1,49 @@
+{
+  "notes": "Mappings were checked against downloaded photographs and the page's own captions. Prices are only recorded where stated in that exact caption. Empty price/unit requires confirmation; no fish species is identified from its appearance alone.",
+  "verified": [
+    {"id":"122129686851395221","name":"ডায়েট বক্স","price":130,"unit":"১ বক্স","captionEvidence":"এই ডায়েট বক্স রা যারা যারা নিতে চান প্রি অর্ডার করে ফেলুন। মূল্য ১৩০/-","aiLabelOnPage":true},
+    {"id":"122128950093395221","name":"মিক্সড ভেজিটেবল","price":null,"unit":null,"captionEvidence":"মিক্সড ভেজিটেবল, ৪ থেকে ৬ ধরনের সবজি থাকে এতে।","aiLabelOnPage":false},
+    {"id":"122130093399395221","name":"লাউশাক","price":null,"unit":null,"captionEvidence":"লাউশাক","aiLabelOnPage":false},
+    {"id":"122129351127395221","name":"রুই মাছ","price":null,"unit":null,"captionEvidence":"রেডি টু কুক ফ্রেশ রুই মাছ","aiLabelOnPage":false},
+    {"id":"122128371111395221","name":"শিং মাছ","price":null,"unit":null,"captionEvidence":"রেডি টু কুক শিং মাছ","aiLabelOnPage":false},
+    {"id":"122128592475395221","name":"পিয়ালি মাছ","price":null,"unit":"৫০০ গ্রাম; ২৫০ গ্রামও পাওয়া যায়","captionEvidence":"হাফ কেজি পিয়ালি মাছ রেডি টু কুক। ... Fresh Mart Faridpur থেকে আপনি ২৫০ গ্রাম মাছও নিতে পারবেন","aiLabelOnPage":false},
+    {"id":"122127885393395221","name":"কই মাছ","price":null,"unit":null,"captionEvidence":"রেডি টু কুক কই মাছ","aiLabelOnPage":true},
+    {"id":"122128860093395221","name":"গরুর কলিজা কম্বো","price":200,"unit":"১ কম্বো","captionEvidence":"কলিজা কম্বো ২০০/-","aiLabelOnPage":false},
+    {"id":"122128818879395221","name":"হাড় ছাড়া গরুর মাংস","price":null,"unit":"১ কেজি (ছবিতে দেখানো)","captionEvidence":"হার ছাড়া গরুর গোশ ... এখানে ১ কেজি পরিমাণ আছে","aiLabelOnPage":false},
+    {"id":"122127428637395221","name":"হাড় ছাড়া গরুর মাংস","price":null,"unit":"২৫০ গ্রাম","captionEvidence":"হার ছাড়া ২৫০ গ্রাম গোশ যারা নিতে চান নক করুন","aiLabelOnPage":true},
+    {"id":"122128125627395221","name":"নারকেল কোড়া","price":null,"unit":null,"captionEvidence":"Fresh Mart Faridpur এর রেডি টু কুক নারকেল কোড়া।","aiLabelOnPage":true},
+    {"id":"122127402903395221","name":"নারকেল কোড়া","price":null,"unit":null,"captionEvidence":"নারকেল ছাড়া পিঠাপুলির কথা চিন্তাভাবনা করা কঠিন। আর নারকেল কোড়ানো আরো কতো যে কঠিন","aiLabelOnPage":false},
+    {"id":"122126639859395221","name":"খোসা ছাড়ানো রসুন","price":null,"unit":null,"captionEvidence":"খোসা ছাড়ানো রশুন ঘরে থাকলে ঝটপট যে কোনো রান্নায় ব্যাবহার করা যায়","aiLabelOnPage":false},
+    {"id":"122126549457395221","name":"পালং শাক","price":null,"unit":null,"captionEvidence":"বাজারে কিন্তু পালং শাক এসে গেছে। যদিও দাম টা একটু বেশি।","aiLabelOnPage":true},
+    {"id":"122126530371395221","name":"নদীর চিংড়ি","price":null,"unit":null,"captionEvidence":"নদীর সবজি চিংড়ি। যারা যারা রেডি টু কুক নিতে চান অর্ডার করে ফেলুন","aiLabelOnPage":true},
+    {"id":"122126181495395221","name":"নদীর চিংড়ি","price":null,"unit":"১০০ গ্রাম","captionEvidence":"১০০ গ্রাম রেডি টু কুক নদীর চিংড়ি","aiLabelOnPage":false},
+    {"id":"122126298093395221","name":"মুরগির বুকের মাংস","price":null,"unit":null,"captionEvidence":"মুরগির বুকের মাংস ডায়েটে কেনো এতো জনপ্রিয় জানেন? ... Fresh Mart Faridpur এ কিন্তু সব সময় এভেলএবল থাকবে এখন থেকে।","aiLabelOnPage":true},
+    {"id":"122125856529395221","name":"কচুর লতি","price":null,"unit":null,"captionEvidence":"কচুর লতি","aiLabelOnPage":false},
+    {"id":"122125907283395221","name":"নদীর কাজলি মাছ","price":null,"unit":null,"captionEvidence":"নদীর কাজলি মাছ রেডি টু কুক পেয়ে যাবেন Fresh Mart Faridpur এ","aiLabelOnPage":true},
+    {"id":"122126409261395221","name":"খাসির ভুঁড়ি কম্বো","price":100,"unit":"১ কম্বো","captionEvidence":"যাদের গরুতে এলার্জি খাশির ভুড়ির কম্বো নিতে পারেন। মাত্র ১০০/-","aiLabelOnPage":true},
+    {"id":"122125840371395221","name":"দেশি পুটি মাছ","price":null,"unit":null,"captionEvidence":"দেশি পুটি মাছ রেডি টু কুক পেয়ে যাবেন Fresh Mart Faridpur এ","aiLabelOnPage":false},
+    {"id":"122125452549395221","name":"নদীর গুতুম মাছ","price":null,"unit":null,"captionEvidence":"রেডি টু কুক নদীর ফ্রেশ গুতুম মাছ এখন থেকে Fresh Mart Faridpur থেকে অর্ডার করতে পারবেন। দাম এবং বিস্তারিত জানতে দয়া করে ইনবক্সে নক করুন","aiLabelOnPage":false},
+    {"id":"122125166559395221","name":"গরুর ভুঁড়ি কম্বো","price":100,"unit":"১ কম্বো","captionEvidence":"১০০ টাকায় গরুর ভুড়ির কম্বো কার কার লাগবে?","aiLabelOnPage":false},
+    {"id":"122122550385395221","name":"আদা বাটা","price":null,"unit":null,"captionEvidence":"এখানে কতো গ্রাম আদা বাটা বলেন তো?","aiLabelOnPage":false},
+    {"id":"122122315839395221","name":"মিষ্টি কুমড়া","price":20,"unit":null,"captionEvidence":"২০ টাকার মিষ্টি কুমরা","aiLabelOnPage":false},
+    {"id":"122122277883395221","name":"কলার মোচা","price":null,"unit":null,"captionEvidence":"কলার মোচা এমন সুস্বাদু জিনিস যদি বিনা পরিশ্রমে হাতের কাছে পেয়ে যাই তাহলে কতোই না ভালো হয়।","aiLabelOnPage":false},
+    {"id":"122124088317395221","name":"আতপ চালের গুঁড়া","price":null,"unit":"২৫০ গ্রামের প্যাকেটও পাওয়া যায়","captionEvidence":"ফ্রেশ আতপ চালের গুরা ... স্টুডেন্ট বা সিঙ্গেলদের জন্য কিন্তু ২৫০ গ্রামের প্যাকেটও করা হয়েছে।","aiLabelOnPage":true},
+    {"id":"122122523733395221","name":"আতপ চালের গুঁড়া","price":null,"unit":"১ কেজি / ৫০০ গ্রাম / ২৫০ গ্রাম","captionEvidence":"আপনাদের জন্য রেডি হচ্ছে ১ কেজি ৫০০ গ্রাম ২৫০ গ্রামের প্যাকেট","aiLabelOnPage":true},
+    {"id":"122120727483395221","catalogId":"bottle-gourd","name":"লাউ","price":30,"unit":null,"captionEvidence":"৩০ টাকার লাউ","aiLabelOnPage":false},
+    {"id":"122120329293395221","catalogId":"chopped-ginger","name":"আদা কুচি","price":null,"unit":null,"captionEvidence":"আদা কুচি","aiLabelOnPage":false},
+    {"id":"122120042385395221","name":"শিম + আলু কম্বো","price":null,"unit":null,"captionEvidence":"শিম আলুর কম্বো চলবে নাকি?","aiLabelOnPage":true},
+    {"id":"122121439521395221","name":"হাড় ছাড়া গরুর মাংস","price":null,"unit":"১ কেজি / ৫০০ গ্রাম / ২৫০ গ্রাম","captionEvidence":"আগামী সপ্তাহেই পাবেন ইনশাআল্লাহ হাড় ছাড়া গরুর গোশত নিতে পারবেন ১ কেজি/৫০০ গ্রাম /২৫০ গ্রামও","aiLabelOnPage":true}
+  ],
+  "needsPostCaption": [
+    {"id":"122129745111395221","visual":"White liquid in tied bags; likely milk, but this caption does not name it or a price."},
+    {"id":"122129387301395221","visual":"Two paste tubs; no caption to distinguish ginger from garlic or assign each tub."},
+    {"id":"122129387169395221","visual":"Chicken breast tray; photo from multi-photo post, caption does not identify it."},
+    {"id":"122126790927395221","visual":"Red meat with potatoes; photo from multi-photo post lacks product name."}
+  ],
+  "skipAsCatalogCard": [
+    {"id":"122129443863395221","reason":"Customer review featuring cooked mixed vegetables, not the ready-to-cook package."},
+    {"id":"122127117495395221","reason":"Recruitment post with a general assortment photo."},
+    {"id":"122129478825395221","reason":"Complaint about copied photos; use the specific mixed vegetable package photo instead."},
+    {"id":"122128158795395221","reason":"Follower/gift announcement; product species not stated."}
+  ]
+}

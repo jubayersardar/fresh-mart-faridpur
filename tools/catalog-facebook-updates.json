@@ -1,0 +1,107 @@
+{
+  "matches": {
+    "bottle-gourd": "122120727483395221",
+    "chopped-ginger": "122120329293395221",
+    "chinese-vegetables": "122117465721395221",
+    "chicken-wings": "122115430809395221",
+    "pangas-fish": "122115174003395221",
+    "mixed-chicken-potato": "122115145209395221",
+    "garlic-paste": "122116127541395221",
+    "chicken-leg-potato": "122114623599395221",
+    "french-fries-500g": "122113660953395221",
+    "french-fries-1kg": "122113660953395221",
+    "amaranth-stems-potato": "122113016727395221"
+  },
+  "newProducts": [
+    {
+      "id": "green-banana",
+      "name": "কাঁচকলা",
+      "category": "veg",
+      "unit": "১ প্যাক (পরিমাণ নিশ্চিত করুন)",
+      "price": null,
+      "image": "assets/facebook/122112757851395221.webp",
+      "description": "খোসা ছাড়ানো, রান্নার জন্য কাটা",
+      "source": "https://www.facebook.com/photo.php?fbid=122112757851395221"
+    },
+    {
+      "id": "kochur-lati-shrimp-combo",
+      "name": "কচুর লতি + চিংড়ি",
+      "category": "combos",
+      "unit": "১ কম্বো প্যাক (পরিমাণ নিশ্চিত করুন)",
+      "price": null,
+      "image": "assets/facebook/122113161051395221.webp",
+      "description": "অর্ডারের আগে লতি ও চিংড়ির পরিমাণ নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122113161051395221"
+    },
+    {
+      "id": "small-shrimp-500g",
+      "name": "ছোট চিংড়ি",
+      "category": "fish",
+      "unit": "৫০০ গ্রাম",
+      "price": null,
+      "image": "assets/facebook/122112148857395221.webp",
+      "description": "দাম ও প্রাপ্যতা নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122112148857395221"
+    },
+    {
+      "id": "hyacinth-beans-potato",
+      "name": "শিম + আলু কম্বো",
+      "category": "veg",
+      "unit": "১ প্যাক (পরিমাণ নিশ্চিত করুন)",
+      "price": null,
+      "image": "assets/facebook/122120042385395221.webp",
+      "description": "অর্ডারের আগে প্রাপ্যতা ও পরিমাণ নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122120042385395221"
+    },
+    {
+      "id": "boneless-beef-500g",
+      "name": "হাড় ছাড়া গরুর মাংস",
+      "category": "meat",
+      "unit": "৫০০ গ্রাম",
+      "price": null,
+      "image": "assets/facebook/122121439521395221.webp",
+      "description": "চূড়ান্ত দাম নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122121439521395221"
+    },
+    {
+      "id": "french-cut-onion",
+      "name": "ফ্রেঞ্চ ফ্রাই কাট পেঁয়াজ",
+      "category": "veg",
+      "unit": "১ প্যাক (পরিমাণ নিশ্চিত করুন)",
+      "price": null,
+      "image": "assets/facebook/122118907143395221.webp",
+      "description": "চাইনিজ ভেজিটেবল ও চিলি চিকেনের জন্য কাটা",
+      "source": "https://www.facebook.com/photo.php?fbid=122118907143395221"
+    },
+    {
+      "id": "beef-tripe-250g",
+      "name": "গরুর ভুঁড়ি",
+      "category": "meat",
+      "unit": "২৫০ গ্রাম",
+      "price": null,
+      "image": "assets/facebook/122116794447395221.webp",
+      "description": "প্রি-অর্ডারে দাম ও প্রাপ্যতা নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122116794447395221"
+    },
+    {
+      "id": "beef-tripe-500g",
+      "name": "গরুর ভুঁড়ি",
+      "category": "meat",
+      "unit": "৫০০ গ্রাম",
+      "price": null,
+      "image": "assets/facebook/122116794447395221.webp",
+      "description": "প্রি-অর্ডারে দাম ও প্রাপ্যতা নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122116794447395221"
+    },
+    {
+      "id": "beef-tripe-1kg",
+      "name": "গরুর ভুঁড়ি",
+      "category": "meat",
+      "unit": "১ কেজি",
+      "price": null,
+      "image": "assets/facebook/122116794447395221.webp",
+      "description": "প্রি-অর্ডারে দাম ও প্রাপ্যতা নিশ্চিত করুন",
+      "source": "https://www.facebook.com/photo.php?fbid=122116794447395221"
+    }
+  ]
+}
